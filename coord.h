@@ -1,7 +1,7 @@
 #pragma once
 
-#include "food.h"
 #include <cstdlib>
+#include "food.h"
 
 class Coord
 {

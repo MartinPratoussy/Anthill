@@ -5,14 +5,14 @@ Track::Track(Coord* initialCoord)
     this->currentTrackCoord = initialCoord;
 }
 
-Coord* Track::GetNextTrackCoord()
+Track* Track::GetNextTrack()
 {
-    return this->nextTrackCoord;
+    return this->nextTrack;
 }
 
-Coord* Track::GetPreviousTrackCoord()
+Track* Track::GetPreviousTrack()
 {
-    return this->previousCoord;
+    return this->previousTrack;
 }
 
 Coord* Track::GetCurrentTrackCoord()
@@ -23,4 +23,10 @@ Coord* Track::GetCurrentTrackCoord()
 void Track::SetCoord(Coord* newCoord)
 {
     this->currentTrackCoord = newCoord;
+}
+
+void Track::SetNextTrack(Track* track)
+{
+    this->previousTrack = this;
+    this->nextTrack = track;
 }

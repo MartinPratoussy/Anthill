@@ -1,5 +1,11 @@
 #include "ant.h"
 
+Ant::Ant(Anthill* home)
+{
+    this->antLocation = this->home->GetLocation();
+    this->home = home;
+}
+
 void Ant::CreateNextTrack()
 {
     int direction = rand() % 4+1;
@@ -9,33 +15,31 @@ void Ant::CreateNextTrack()
     case 1:
         newCoord = new Coord(this->antLocation->GetX() + 5, this->antLocation->GetY());
         this->trackTargeted = new Track(newCoord);
+        this->lastTrackReached->SetNextTrack(this->trackTargeted);
         break;
     case 2:
         newCoord = new Coord(this->antLocation->GetX() - 5, this->antLocation->GetY());
         this->trackTargeted = new Track(newCoord);
+        this->lastTrackReached->SetNextTrack(this->trackTargeted);
         break;
     case 3:
         newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() + 5);
         this->trackTargeted = new Track(newCoord);
+        this->lastTrackReached->SetNextTrack(this->trackTargeted);
         break;
     case 4:
         newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() - 5);
         this->trackTargeted = new Track(newCoord);
+        this->lastTrackReached->SetNextTrack(this->trackTargeted);
         break;
     default:
         break;
     }
 }
 
-Ant::Ant(Anthill* home)
-{
-    this->antLocation = this->home->GetLocation();
-    this->home = home;
-}
-
 void Ant::TakeFood()
 {
-
+    this->haveFood = true;
 }
 
 bool Ant::IsHungry()
@@ -51,12 +55,12 @@ void Ant::GoToNextTrack()
         return;
     }
 
-    if (!this->lastTrackReached->GetNextTrackCoord()) {
+    if (!this->lastTrackReached->GetNextTrack()->GetCurrentTrackCoord()) {
         this->CreateNextTrack();
         return;
     }
 
-    this->trackTargeted->SetCoord(this->lastTrackReached->GetNextTrackCoord());
+    this->trackTargeted->SetCoord(this->lastTrackReached->GetNextTrack()->GetCurrentTrackCoord());
     while (this->antLocation != this->trackTargeted->GetCurrentTrackCoord()) {
         if (this->antLocation->GetX() > this->trackTargeted->GetCurrentTrackCoord()->GetX()) {
             this->antLocation = new Coord(this->antLocation->GetX() - 1, this->antLocation->GetY());
@@ -76,7 +80,7 @@ void Ant::GoToNextTrack()
 void Ant::GoToPreviousTrack()
 {
     if (this->haveFood) {
-        this->trackTargeted->SetCoord(this->lastTrackReached->GetPreviousTrackCoord());
+        this->trackTargeted->SetCoord(this->lastTrackReached->GetPreviousTrack()->GetCurrentTrackCoord());
         while (this->antLocation != this->trackTargeted->GetCurrentTrackCoord()) {
             if (this->antLocation->GetX() > this->trackTargeted->GetCurrentTrackCoord()->GetX()) {
                 this->antLocation = new Coord(this->antLocation->GetX() - 1, this->antLocation->GetY());

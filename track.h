@@ -6,15 +6,16 @@ class Track
 {
 private:
 	Coord* currentTrackCoord;
-	Coord* nextTrackCoord;
-	Coord* previousCoord;
+	Track* nextTrack;
+	Track* previousTrack;
 
 public:
 	Track(Coord* initialCoord);
 
-	Coord* GetNextTrackCoord();
-	Coord* GetPreviousTrackCoord();
+	Track* GetNextTrack();
+	Track* GetPreviousTrack();
 	Coord* GetCurrentTrackCoord();
 
 	void SetCoord(Coord* newCoord);
+	void SetNextTrack(Track* track);
 };

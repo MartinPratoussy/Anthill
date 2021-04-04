@@ -7,10 +7,10 @@
       <FileName>ant.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="antLocation" />
-      <Field Name="home" />
       <Field Name="lastTrackReached" />
       <Field Name="trackTargeted" />
+      <Field Name="antLocation" />
+      <Field Name="home" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Anthill">
@@ -26,9 +26,12 @@
   <Class Name="Coord">
     <Position X="2" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAYAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAYAI=</HashCode>
       <FileName>coord.h</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="food" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Food">
     <Position X="0.5" Y="1.5" Width="1.5" />
