@@ -1,10 +1,11 @@
 #include <iostream>
 
-#include "ant.h"
+#include "garden.h"
 
 int main() {
 
-	std::cout << "Hello World!";
+	Garden* garden = new Garden("Octopus's garden", 4);
+	garden->InitiateGarden();
 	
 	return 0;
 }

@@ -143,6 +143,7 @@
     <ClInclude Include="anthill.h" />
     <ClInclude Include="coord.h" />
     <ClInclude Include="food.h" />
+    <ClInclude Include="garden.h" />
     <ClInclude Include="track.h" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,7 @@
     <ClCompile Include="anthill.cpp" />
     <ClCompile Include="coord.cpp" />
     <ClCompile Include="food.cpp" />
+    <ClCompile Include="garden.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="track.cpp" />
   </ItemGroup>

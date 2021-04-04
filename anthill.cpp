@@ -12,5 +12,5 @@ Coord* Anthill::GetLocation()
 
 void Anthill::AddFoodToReserve(Food* food)
 {
-	this->reserve->insert(reserve->begin(),food);
+	this->reserve->push_back(food);
 }
