@@ -3,22 +3,23 @@
 void Ant::CreateNextTrack()
 {
     int direction = rand() % 4+1;
+    Coord* newCoord;
     switch (direction)
     {
     case 1:
-        Coord* newCoord = new Coord(this->antLocation->GetX() + 5, this->antLocation->GetY());
+        newCoord = new Coord(this->antLocation->GetX() + 5, this->antLocation->GetY());
         this->trackTargeted = new Track(newCoord);
         break;
     case 2:
-        Coord * newCoord = new Coord(this->antLocation->GetX() - 5, this->antLocation->GetY());
+        newCoord = new Coord(this->antLocation->GetX() - 5, this->antLocation->GetY());
         this->trackTargeted = new Track(newCoord);
         break;
     case 3:
-        Coord * newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() + 5);
+        newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() + 5);
         this->trackTargeted = new Track(newCoord);
         break;
     case 4:
-        Coord * newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() - 5);
+        newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() - 5);
         this->trackTargeted = new Track(newCoord);
         break;
     default:
@@ -32,6 +33,11 @@ Ant::Ant(Anthill* home)
     this->home = home;
 }
 
+void Ant::TakeFood()
+{
+
+}
+
 bool Ant::IsHungry()
 {
     return this->haveFood;
@@ -39,6 +45,12 @@ bool Ant::IsHungry()
 
 void Ant::GoToNextTrack()
 {
+
+    if (this->antLocation->IsFoodPresent()) {
+        this->haveFood = true;
+        return;
+    }
+
     if (!this->lastTrackReached->GetNextTrackCoord()) {
         this->CreateNextTrack();
         return;
