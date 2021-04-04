@@ -42,6 +42,12 @@ void Ant::TakeFood()
     this->haveFood = true;
 }
 
+void Ant::DropFood()
+{
+    this->home->AddFoodToReserve(new Food());
+    this->haveFood = false;
+}
+
 bool Ant::IsHungry()
 {
     return this->haveFood;
@@ -50,18 +56,18 @@ bool Ant::IsHungry()
 void Ant::GoToNextTrack()
 {
 
-    if (this->antLocation->IsFoodPresent()) {
+    if (this->antLocation->IsFoodPresent()) { // TODO: move to a controller class
         this->haveFood = true;
         return;
     }
 
-    if (!this->lastTrackReached->GetNextTrack()->GetCurrentTrackCoord()) {
+    if (!this->lastTrackReached->GetNextTrack()->GetCurrentTrackCoord()) { // TODO: move to a controller class
         this->CreateNextTrack();
         return;
     }
 
     this->trackTargeted->SetCoord(this->lastTrackReached->GetNextTrack()->GetCurrentTrackCoord());
-    while (this->antLocation != this->trackTargeted->GetCurrentTrackCoord()) {
+    while (this->antLocation != this->trackTargeted->GetCurrentTrackCoord()) { // TODO: move to a controller class
         if (this->antLocation->GetX() > this->trackTargeted->GetCurrentTrackCoord()->GetX()) {
             this->antLocation = new Coord(this->antLocation->GetX() - 1, this->antLocation->GetY());
         }
@@ -78,8 +84,12 @@ void Ant::GoToNextTrack()
 }
 
 void Ant::GoToPreviousTrack()
-{
-    if (this->haveFood) {
+{   
+    if (this->antLocation == this->home->GetLocation()) {
+        DropFood();
+    }
+
+    if (this->haveFood) { // TODO: move to a controller class
         this->trackTargeted->SetCoord(this->lastTrackReached->GetPreviousTrack()->GetCurrentTrackCoord());
         while (this->antLocation != this->trackTargeted->GetCurrentTrackCoord()) {
             if (this->antLocation->GetX() > this->trackTargeted->GetCurrentTrackCoord()->GetX()) {

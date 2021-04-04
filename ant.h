@@ -13,9 +13,9 @@ private:
 	bool haveFood = false;
 	Anthill* home;
 
-
 	void CreateNextTrack();
 	void TakeFood();
+	void DropFood();
 
 public:
 	Ant(Anthill* home);	
