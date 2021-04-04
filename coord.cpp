@@ -6,7 +6,12 @@ Coord::Coord(int X, int Y)
 	this->Y = Y;
 }
 
-Coord* Coord::GetCoord()
+int Coord::GetX()
 {
-	return this;
+	return this->X;
+}
+
+int Coord::GetY()
+{
+	return this->Y;
 }

@@ -5,13 +5,17 @@
 class Track
 {
 private:
-	Coord currentTrackCoord;
-	Coord nextTrackCoord;
-	Coord previousCoord;
+	Coord* currentTrackCoord;
+	Coord* nextTrackCoord;
+	Coord* previousCoord;
 
-private:
-	Coord GetNextTrackCoord();
-	Coord GetPreviousTrackCoord();
-	Coord GetCurrentTrackCoord();
+public:
+	Track(Coord* initialCoord);
+
+	Coord* GetNextTrackCoord();
+	Coord* GetPreviousTrackCoord();
+	Coord* GetCurrentTrackCoord();
+
+	void SetCoord(Coord* newCoord);
 };
 

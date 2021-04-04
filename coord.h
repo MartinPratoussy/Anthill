@@ -7,6 +7,8 @@ private:
 
 public:
 	Coord(int X, int Y);
-	Coord* GetCoord();
+
+	int GetX();
+	int GetY();
 };
 
