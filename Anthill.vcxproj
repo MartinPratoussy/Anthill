@@ -152,6 +152,9 @@
     <ClCompile Include="food.cpp" />
     <ClCompile Include="track.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="AnthillClassDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

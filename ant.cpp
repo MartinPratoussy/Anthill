@@ -2,11 +2,33 @@
 
 void Ant::CreateNextTrack()
 {
-
+    int direction = rand() % 4+1;
+    switch (direction)
+    {
+    case 1:
+        Coord* newCoord = new Coord(this->antLocation->GetX() + 5, this->antLocation->GetY());
+        this->trackTargeted = new Track(newCoord);
+        break;
+    case 2:
+        Coord * newCoord = new Coord(this->antLocation->GetX() - 5, this->antLocation->GetY());
+        this->trackTargeted = new Track(newCoord);
+        break;
+    case 3:
+        Coord * newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() + 5);
+        this->trackTargeted = new Track(newCoord);
+        break;
+    case 4:
+        Coord * newCoord = new Coord(this->antLocation->GetX(), this->antLocation->GetY() - 5);
+        this->trackTargeted = new Track(newCoord);
+        break;
+    default:
+        break;
+    }
 }
 
 Ant::Ant(Anthill* home)
 {
+    this->antLocation = this->home->GetLocation();
     this->home = home;
 }
 

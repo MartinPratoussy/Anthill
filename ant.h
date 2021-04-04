@@ -2,6 +2,8 @@
 
 #include "track.h"
 #include "anthill.h"
+#include <ctime>
+#include <cstdlib>
 
 class Ant
 {

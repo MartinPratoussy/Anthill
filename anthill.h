@@ -5,6 +5,11 @@
 class Anthill
 {
 private:
-	Coord location;
+	Coord* location;
+
+public:
+	Anthill(Coord* location);
+
+	Coord* GetLocation();
 };
 
