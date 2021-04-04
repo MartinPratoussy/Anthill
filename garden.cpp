@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   garden.cpp
+ * \brief  
+ * 
+ * \author Martin
+ * \date   April 2021
+ *********************************************************************/
+
 #include "garden.h"
 
 void Garden::InitiateAnthills()
@@ -31,4 +39,13 @@ void Garden::InitiateGarden()
 	InitiateAnthills();
 	InitiateAnts();
 	InitiateFood();	
+}
+
+void Garden::DropTheCrumbs()
+{
+	while (true) {
+		Sleep(10);
+
+		/* Graphical simulation to come */
+	}
 }

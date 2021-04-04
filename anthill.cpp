@@ -1,3 +1,11 @@
+/*****************************************************************//**
+ * \file   anthill.cpp
+ * \brief  
+ * 
+ * \author Martin
+ * \date   April 2021
+ *********************************************************************/
+
 #include "anthill.h"
 
 Anthill::Anthill(Coord* location)

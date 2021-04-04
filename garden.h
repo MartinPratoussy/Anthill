@@ -1,7 +1,16 @@
+/*****************************************************************//**
+ * \file   garden.h
+ * \brief  
+ * 
+ * \author Martin
+ * \date   April 2021
+ *********************************************************************/
+
 #pragma once
 
 #include <string.h>
 #include <stdio.h>
+#include <Windows.h>
 
 #include "ant.h"
 
@@ -22,5 +31,6 @@ public:
 	Garden(const char* name, int nbAnthills);
 
 	void InitiateGarden();
+	void DropTheCrumbs();
 };
 
