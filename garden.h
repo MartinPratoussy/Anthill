@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   garden.h
+ * \file   .h
  * \brief  
  * 
  * \author Martin
@@ -11,6 +11,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <Windows.h>
+#define SDL_MAIN_HANDLED
+#include <SDL\SDL.h>
 
 #include "ant.h"
 
@@ -26,6 +28,8 @@ private:
 	void InitiateAnthills();
 	void InitiateAnts();
 	void InitiateFood();
+
+	void InitiateWindow();
 
 public:
 	Garden(const char* name, int nbAnthills);
