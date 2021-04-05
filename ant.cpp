@@ -12,6 +12,7 @@ Ant::Ant(Anthill* home)
 {
     this->home = home;
     this->antLocation = this->home->GetLocation();
+    this->image = IMG_Load("Ressources/ant.png");
 }
 
 void Ant::CreateNextTrack()
@@ -114,4 +115,14 @@ void Ant::GoToPreviousTrack()
             }
         }
     }
+}
+
+Anthill* Ant::GetHome()
+{
+    return this->home;
+}
+
+SDL_Surface* Ant::GetImage()
+{
+    return this->image;
 }

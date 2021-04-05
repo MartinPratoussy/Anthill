@@ -9,6 +9,7 @@
 #pragma once
 
 #include <ctime>
+#include <SDL/SDL_image.h>
 #include "track.h"
 #include "anthill.h"
 
@@ -21,6 +22,8 @@ private:
 	bool haveFood = false;
 	Anthill* home;
 
+	SDL_Surface* image;
+
 	void CreateNextTrack();
 	void TakeFood();
 	void DropFood();
@@ -31,4 +34,6 @@ public:
 	bool IsHungry();
 	void GoToNextTrack();
 	void GoToPreviousTrack();
+	Anthill* GetHome();
+	SDL_Surface* GetImage();
 };

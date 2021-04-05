@@ -36,15 +36,16 @@ void Garden::InitiateFood()
 
 void Garden::InitiateWindow()
 {
-	SDL_Init(SDL_INIT_EVERYTHING);
-	SDL_Window* window = SDL_CreateWindow(this->name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
-
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
-
-	SDL_RenderClear(renderer);
-	SDL_RenderPresent(renderer);
+	try {
+		if (SDL_Init(SDL_INIT_VIDEO) == -1) throw "SDL Init error: ";
+	}
+	catch (const char* e) {
+		std::cerr << e << SDL_GetError();
+	}
+	
+	this->window = SDL_CreateWindow(this->name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
+	SDL_SetWindowIcon(this->window, IMG_Load("Ressources/Ant.bmp"));
+	this->renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 }
 
 void Garden::InitiateGarden()
@@ -57,8 +58,21 @@ void Garden::InitiateGarden()
 void Garden::DropTheCrumbs()
 {
 	InitiateWindow();
-	while (true) {
 
-		/* Graphical simulation to come */
+	SDL_Event events;
+	bool isOpen = true;
+	while (isOpen) {
+		while (SDL_PollEvent(&events)) {
+			switch (events.type) {
+			case SDL_QUIT: isOpen = false; break;
+			}
+		}
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+		SDL_RenderClear(renderer);
+		SDL_RenderPresent(renderer);
 	}
+
+	SDL_DestroyRenderer(this->renderer);
+	SDL_DestroyWindow(this->window);
+	SDL_Quit();
 }
