@@ -10,8 +10,8 @@
 
 Ant::Ant(Anthill* home)
 {
-    this->antLocation = this->home->GetLocation();
     this->home = home;
+    this->antLocation = this->home->GetLocation();
 }
 
 void Ant::CreateNextTrack()

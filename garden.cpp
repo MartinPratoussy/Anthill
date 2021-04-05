@@ -8,6 +8,12 @@
 
 #include "garden.h"
 
+Garden::Garden(const char* name, int nbAnthills)
+{
+	this->name = name;
+	this->nbAnthills = nbAnthills;
+}
+
 void Garden::InitiateAnthills()
 {
 	for (int i = 0; i < this->nbAnthills; i++) {
@@ -17,9 +23,9 @@ void Garden::InitiateAnthills()
 
 void Garden::InitiateAnts()
 {
-	for (int i = 0; i < this->nbAnthills; i++) {
+	for (Anthill* anthill : this->anthills) {
 		for (int j = 0; j < rand() % 1000; j++) {
-			colony.push_back(new Ant(anthills.at(i)));
+			colony.push_back(new Ant(anthill));
 		}
 	}
 }
@@ -41,12 +47,6 @@ void Garden::InitiateWindow()
 	SDL_RenderPresent(renderer);
 }
 
-Garden::Garden(const char* name, int nbAnthills)
-{
-	this->name = name;
-	this->nbAnthills = nbAnthills;
-}
-
 void Garden::InitiateGarden()
 {
 	InitiateAnthills();
@@ -56,9 +56,8 @@ void Garden::InitiateGarden()
 
 void Garden::DropTheCrumbs()
 {
+	InitiateWindow();
 	while (true) {
-		InitiateWindow();
-		SDL_Delay(3000);
 
 		/* Graphical simulation to come */
 	}

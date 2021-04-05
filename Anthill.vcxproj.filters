@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AnthillClassDiagram.cd" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Anthill.rc">

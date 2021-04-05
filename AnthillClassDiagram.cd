@@ -3,12 +3,12 @@
   <Class Name="Ant">
     <Position X="2.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAYAAAAEAgIAAEAIAAAgAAAAEAAAAAAAQAAA=</HashCode>
+      <HashCode>IAAAAIAAAYAAAAEAgIAAEAIAAAgAAAAEAAAAAAAQAAA=</HashCode>
       <FileName>ant.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="lastTrackReached" />
       <Field Name="trackTargeted" />
+      <Field Name="lastTrackReached" />
       <Field Name="antLocation" />
       <Field Name="home" />
     </ShowAsAssociation>
@@ -16,7 +16,7 @@
   <Class Name="Anthill">
     <Position X="7" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAACAAAAAAAAAAAAAAACAAAAAAIAAAAAAAAAIAA=</HashCode>
       <FileName>anthill.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -43,14 +43,19 @@
   <Class Name="Track">
     <Position X="8.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAiAAAEAAAACABAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIAAAIAEAAAAoABAgAAAAAAAAIAAAAgAAAAAAAAAA=</HashCode>
       <FileName>track.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="currentTrackCoord" />
-      <Field Name="nextTrackCoord" />
-      <Field Name="previousCoord" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="Garden">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIIAAJAAggACAAAACAAAAEACAAAAAAgAAAAAQ=</HashCode>
+      <FileName>garden.h</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

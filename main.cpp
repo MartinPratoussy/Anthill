@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
 
 	Garden* garden = new Garden("Octopus's garden", 4);
 	garden->InitiateGarden();
+	garden->DropTheCrumbs();
 	
 	return 0;
 }
